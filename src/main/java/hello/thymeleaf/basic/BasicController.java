@@ -120,6 +120,19 @@ public class BasicController {
         return "basic/condition";
     }
 
+    @GetMapping("block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
+    }
+
+    @GetMapping("javascript")
+    public String javascript(Model model) {
+        addUsers(model);
+        model.addAttribute("user", new User("UserA", 10));
+        return "basic/javascript";
+    }
+
     // model 을 매개변수로 받아 여러 mapping method 에서 호출해 사용될 수 있다.
     private void addUsers(Model model) {
         List<User> list = new ArrayList<>();
